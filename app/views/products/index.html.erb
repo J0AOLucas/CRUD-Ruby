@@ -5,7 +5,8 @@
 <% @products.each do |product| %>
   <% total = total + (product.item_price * product.purchase_count) %>
 <% end %>
-<p>Total da empresa: <%= total%></p>
+<p>Total da empresa: <strong>R$<%= total%></p></strong>
+<hr>
 
 <div id="products">
   <% @products.each do |product| %>
@@ -13,6 +14,7 @@
     <p>
       <%= link_to "Show this product", product %>
     </p>
+    <hr>
   <% end %>
 </div>
 
