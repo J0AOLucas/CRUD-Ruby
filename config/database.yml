@@ -1,0 +1,27 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  port: 5432
+  username: postgres
+  password: 1234
+  database: postgres
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: file_receiver_development
+
+
+test:
+  <<: *default
+  database: file_receiver_test
+
+
+
+production:
+  <<: *default
+  database: file_receiver_production
+  username: file_receiver
+  password: <%= ENV["FILE_RECEIVER_DATABASE_PASSWORD"] %>

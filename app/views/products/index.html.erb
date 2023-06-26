@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Produtos</h1>
+<% total = 0%>
+<% @products.each do |product| %>
+  <% total = total + (product.item_price * product.purchase_count) %>
+<% end %>
+<p>Total da empresa: <%= total%></p>
+
+<div id="products">
+  <% @products.each do |product| %>
+    <%= render product %>
+    <p>
+      <%= link_to "Show this product", product %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New product", new_product_path %>
